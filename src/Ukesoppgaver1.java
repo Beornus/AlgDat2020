@@ -14,7 +14,7 @@ public class Ukesoppgaver1 {
 
         for (int i = 1; i < a.length; i++)
         {
-            if (a[i] < a[m]) m = i;
+            if (a[i] <= a[m]) m = i;
         }
         return m;
     }
