@@ -58,7 +58,7 @@ public class Ukesoppgaver1 {
 // 6. Utrykket n! betyr n fakultet og er gitt ved n! = n · (n-1) ·  ·  · 2 · 1 . Lag en metode long fak(int n) som regner ut n! .
 // Hvor mange multiplikasjoner utføres i metoden?
 
-    public static void main(String[] args){
+  /*  public static void main(String[] args){
         int val = 6;
 
         long resultat = fak(val);
@@ -78,7 +78,29 @@ public class Ukesoppgaver1 {
 
         return resultat;
     }
-
     //Antall multiplikasjoner i metoden är n-1
+    */
+
+  //1. Hvor mange grunnleggende operasjoner utfører Programkode 1.1.4 hvis tabellen a inneholder
+    // i) 10, 5, 7, 2, 9, 1, 3, 8, 4, 6
+    // ii) 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+    public static int maks(int[] a)
+    {
+        int m = 0;               // (i) 1 ) (ii) 1 )
+        int maksverdi = a[0];    // (i) 2 ) (ii) 2 )
+
+        for (int i = 1; i < a.length; i++) // (i) 1 + 10 + 9 ) (ii) 1 + 10 + 9 )
+            if (a[i] > maksverdi) // (i) 2 * 9 ) (ii) 2 * 9 )
+        {
+            maksverdi = a[i];     // (i) 0 ) (ii) 2 * 9 )
+            m = i;                // (i) 0 ) (ii) 1 * 9 )
+        }
+        return m;   // (i) 1 ) (ii) 1 )
+
+        //Svar oppgave i) 42
+        //Svar oppgave ii) 69
+
+    }
 
 }
