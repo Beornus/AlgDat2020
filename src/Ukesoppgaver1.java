@@ -26,6 +26,7 @@ public class Ukesoppgaver1 {
 // 5.Lag en metode public static int[] minmaks(int[] a). Den skal ved hjelp av en int-tabell med lengde 2 returnere posisjonene
 // til minste og største verdi i tabellen a. Hvis du har funnet at m1 er posisjonen til den minste og m2 til den største, kan du
 // returnere tabellen b definert ved:   int[] b = {m1, m2}; Hvor mange sammenligninger bruker metoden din?
+
     public static void main(String[] args){
         int [] a = {2, 5, 45, 32, 6, 16, 22};
 
