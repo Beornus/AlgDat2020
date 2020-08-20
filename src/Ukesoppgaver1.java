@@ -27,7 +27,7 @@ public class Ukesoppgaver1 {
 // til minste og største verdi i tabellen a. Hvis du har funnet at m1 er posisjonen til den minste og m2 til den største, kan du
 // returnere tabellen b definert ved:   int[] b = {m1, m2}; Hvor mange sammenligninger bruker metoden din?
 
- public static void main(String[] args){
+ /*public static void main(String[] args){
         int [] a = {2, 5, 45, 32, 6, 16, 22};
 
         int [] minMaks = minMaks(a);
@@ -53,8 +53,32 @@ public class Ukesoppgaver1 {
             }
         }
         return new int [] {min, max};
-    }
+    }*/
 
 // 6. Utrykket n! betyr n fakultet og er gitt ved n! = n · (n-1) ·  ·  · 2 · 1 . Lag en metode long fak(int n) som regner ut n! .
 // Hvor mange multiplikasjoner utføres i metoden?
+
+    public static void main(String[] args){
+        int val = 6;
+
+        long resultat = fak(val);
+
+        System.out.println(resultat);
+
+
+
+    }
+
+    public static long fak(int n) {
+        long resultat = n;
+
+        for (int i = 1; i < n; i++) {
+            resultat *= i;
+        }
+
+        return resultat;
+    }
+
+    //Antall multiplikasjoner i metoden är n-1
+
 }
