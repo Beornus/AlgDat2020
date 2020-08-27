@@ -3,6 +3,7 @@ package algData;
 import algData.Uke1.Ukesoppgaver1;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class Tabell     // Samleklasse for tabellmetoder
@@ -13,6 +14,11 @@ public class Tabell     // Samleklasse for tabellmetoder
     public static void bytt(int[] a, int i, int j)
     {
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
+    }
+
+    //Ny metode bytt(char[] c, int i, int j) 1.2.2 Oppgave 3
+    public static void byttNy(char[] c, int i, int j){
+        char temp = c[i]; c[i] = c[j]; c[j] = temp;
     }
 
     // Metoden randPerm(int n)                   Programkode 1.1.8 e)
@@ -65,11 +71,78 @@ public class Tabell     // Samleklasse for tabellmetoder
 
         return m;  // posisjonen til største verdi i a[fra:til>
     }
+
+    public static int maksNy(int[] a, int fra, int til)
+    {
+        fratilKontroll(a.length,fra,til);
+
+        if (fra == til)
+            throw new NoSuchElementException
+                    ("fra(" + fra + ") = til(" + til + ") - tomt tabellintervall!");
+
+        int m = fra;              // indeks til største verdi i a[fra:til>
+        int maksverdi = a[fra];   // største verdi i a[fra:til>
+
+        for (int i = fra + 1; i < til; i++)
+        {
+            if (a[i] > maksverdi)
+            {
+                m = i;                // indeks til største verdi oppdateres
+                maksverdi = a[m];     // største verdi oppdateres
+            }
+        }
+
+        return m;  // posisjonen til største verdi i a[fra:til>
+    }
     // Metoden maks(int[] a)                     Programkode 1.2.1 c)
     public static int min(int[] a)  // bruker hele tabellen
     {
         return min(a,0,a.length);     // kaller metoden over
+    }                                     // min-metodene - se Oppgave 1 i Avsnitt 1.2.1
+
+    public static void skriv(int[] a, int fra, int til){
+        int[] kopiAvUrval = Arrays.copyOfRange(a,fra,til);           // en kopi av c[4:8>
+        for (int element : kopiAvUrval) System.out.print(element + " ");
     }
 
-    // min-metodene - se Oppgave 1 i Avsnitt 1.2.1
+    public static void skriv(int[] a){
+        for(int element : a) System.out.print(element + " ");
+    }
+
+    public static void skrivln(int[] a, int fra, int til){
+        int[] kopiAvUrval = Arrays.copyOfRange(a,fra,til);           // en kopi av c[4:8>
+        for (int element : kopiAvUrval) System.out.println(element + " ");
+    }
+
+    public static void skrivln(int[] a){
+        for(int element : a) System.out.println(element + " ");
+    }
+
+    public static void fratilKontroll(int tablengde, int fra, int til)
+    {
+        if (fra < 0)                                  // fra er negativ
+            throw new ArrayIndexOutOfBoundsException
+                    ("fra(" + fra + ") er negativ!");
+
+        if (til > tablengde)                          // til er utenfor tabellen
+            throw new ArrayIndexOutOfBoundsException
+                    ("til(" + til + ") > tablengde(" + tablengde + ")");
+
+        if (fra > til)                                // fra er større enn til
+            throw new IllegalArgumentException
+                    ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+    }
+    public static void vhKontroll(int tablengde, int v, int h)
+    {
+        if (v < 0)
+            throw new ArrayIndexOutOfBoundsException("v(" + v + ") < 0");
+
+        if (h >= tablengde)
+            throw new ArrayIndexOutOfBoundsException
+                    ("h(" + h + ") >= tablengde(" + tablengde + ")");
+
+        if (v > h + 1)
+            throw new IllegalArgumentException
+                    ("v = " + v + ", h = " + h);
+    }
 }
