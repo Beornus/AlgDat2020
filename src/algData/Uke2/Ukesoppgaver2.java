@@ -17,14 +17,15 @@ public class Ukesoppgaver2 {
         System.out.println(minimum);
     }*/
 
+    //1.2.1 Oppgave 5
     //I Java 1.5 ble det innført en ny type for-løkke - en såkalt for-alle-løkke. Se Programkode 1.2.1 d).
     // Den må du lære deg hvis du ikke allerede kan den. Se f.eks. Vedlegg E.
 
     public static void main(String[] args){
         char[] bokstaver = {'A','B','C','D','E','F','G','H','I','J'};  // 10 bokstaver
 
-        char[] d = Arrays.copyOfRange(c,4,8);           // en kopi av c[4:8>
-        for (char k : d) System.out.print(k + " ");     // kopien d skrives ut
+        char[] kopiAvUrval = Arrays.copyOfRange(bokstaver,4,8);           // en kopi av c[4:8>
+        for (char element : kopiAvUrval) System.out.print(element + " ");     // kopien d skrives ut
 
         // Utskrift: E F G H
     }
