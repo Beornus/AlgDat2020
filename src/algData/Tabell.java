@@ -49,7 +49,7 @@ public class Tabell     // Samleklasse for tabellmetoder
         }
     }
 
-    // Metoden maks(int[] a, int fra, int til)   Programkode 1.2.1 b)
+    // Metoden min(int[] a, int fra, int til)   Programkode 1.2.1 b)
     public static int min(int[] a, int fra, int til)
     {
         if (fra < 0 || til > a.length || fra >= til)
@@ -72,8 +72,32 @@ public class Tabell     // Samleklasse for tabellmetoder
         return m;  // posisjonen til største verdi i a[fra:til>
     }
 
+    // Metoden maks(int[] a, int fra, int til)   Programkode 1.2.1 b)
+    public static int maks(int[] a, int fra, int til)
+    {
+        if (fra < 0 || til > a.length || fra >= til)
+        {
+            throw new IllegalArgumentException("Illegalt intervall!");
+        }
+
+        int m = fra;              // indeks til største verdi i a[fra:til>
+        int maksverdi = a[fra];   // største verdi i a[fra:til>
+
+        for (int i = fra + 1; i < til; i++)
+        {
+            if (a[i] > maksverdi)
+            {
+                m = i;                // indeks til største verdi oppdateres
+                maksverdi = a[m];     // største verdi oppdateres
+            }
+        }
+
+        return m;  // posisjonen til største verdi i a[fra:til>
+    }
+
     public static int maksNy(int[] a, int fra, int til)
     {
+        if(a == null) throw new NullPointerException("Arrayet " + a + " er tomt");
         fratilKontroll(a.length,fra,til);
 
         if (fra == til)
@@ -94,11 +118,17 @@ public class Tabell     // Samleklasse for tabellmetoder
 
         return m;  // posisjonen til største verdi i a[fra:til>
     }
-    // Metoden maks(int[] a)                     Programkode 1.2.1 c)
+    // Metoden min(int[] a)                     Programkode 1.2.1 c)
     public static int min(int[] a)  // bruker hele tabellen
     {
         return min(a,0,a.length);     // kaller metoden over
-    }                                     // min-metodene - se Oppgave 1 i Avsnitt 1.2.1
+    }                                      // min-metodene - se Oppgave 1 i Avsnitt 1.2.1
+
+    // Metoden maks(int[] a)                     Programkode 1.2.1 c)
+    public static int maks(int[] a)  // bruker hele tabellen
+    {
+        return maks(a,0,a.length);     // kaller metoden over
+    }
 
     public static void skriv(int[] a, int fra, int til){
         int[] kopiAvUrval = Arrays.copyOfRange(a,fra,til);           // en kopi av c[4:8>
@@ -110,12 +140,14 @@ public class Tabell     // Samleklasse for tabellmetoder
     }
 
     public static void skrivln(int[] a, int fra, int til){
+        fratilKontroll(a.length, fra, til);
         int[] kopiAvUrval = Arrays.copyOfRange(a,fra,til);           // en kopi av c[4:8>
         for (int element : kopiAvUrval) System.out.println(element + " ");
     }
 
     public static void skrivln(int[] a){
-        for(int element : a) System.out.println(element + " ");
+        for(int element : a) System.out.print(element + " ");
+        System.out.println();
     }
 
     public static void fratilKontroll(int tablengde, int fra, int til)
@@ -145,4 +177,82 @@ public class Tabell     // Samleklasse for tabellmetoder
             throw new IllegalArgumentException
                     ("v = " + v + ", h = " + h);
     }
+
+    public static int[] nestMaks(int[] a)  // legges i class Tabell
+    {
+        int n = a.length;   // tabellens lengde
+
+        if (n < 2) throw   // må ha minst to verdier!
+                new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
+
+        int m = maks(a);  // m er posisjonen til tabellens største verdi
+
+        int nm;           // nm skal inneholde posisjonen til nest største verdi
+
+        if (m == 0)                            // den største ligger først
+        {
+            nm = maks(a, 1, n);                  // leter i a[1:n>
+        }
+        else if (m == n - 1)                   // den største ligger bakerst
+        {
+            nm = maks(a, 0, n - 1);              // leter i a[0:n-1>
+        }
+        else
+        {
+            int mv = maks(a, 0, m);              // leter i a[0:m>
+            int mh = maks(a, m + 1, n);          // leter i a[m+1:n>
+            nm = a[mh] > a[mv] ? mh : mv;        // hvem er størst?
+        }
+
+        return new int[] {m,nm};      // m i posisjon 0 , nm i posisjon 1
+
+    } // nestMaks
+
+    public static int[] nestMaks2(int[] a)  // legges i class Tabell
+    {
+        int n = a.length;   // tabellens lengde
+
+        if (n < 2) throw   // må ha minst to verdier!
+                new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
+
+        int m = maks(a);  // m er posisjonen til tabellens største verdi
+
+        int nm;           // nm skal inneholde posisjonen til nest største verdi
+        //bytt verdi
+        bytt(a, m, 0);
+
+        nm = maks(a, 1, n);
+
+        if(m == nm) nm = 0;
+
+        //bytt tilbake
+        bytt(a, 0, m);
+
+        return new int[] {m,nm};      // m i posisjon 0 , nm i posisjon 1
+
+    } // nestMaks
+
+    public static int[] nestMaks3(int[] a)  // legges i class Tabell
+    {
+        int n = a.length;   // tabellens lengde
+
+        if (n < 2) throw   // må ha minst to verdier!
+                new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
+
+        int m = maks(a);  // m er posisjonen til tabellens største verdi
+
+        int nm;           // nm skal inneholde posisjonen til nest største verdi
+        //bytt verdi
+        bytt(a, m, n-1);
+
+        nm = maks(a, 0, n-1);
+
+        if(m == nm) nm = n-1;
+
+        //bytt tilbake
+        bytt(a, n-1, m);
+
+        return new int[] {m,nm};      // m i posisjon 0 , nm i posisjon 1
+
+    } // nestMaks
 }
