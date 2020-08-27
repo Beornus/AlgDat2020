@@ -81,7 +81,7 @@ public class Ukesoppgaver2 {
 
     public static void main(String[] args) {
         int [] a = {4, 5, 34, 23, 67, 43};
-        int i = Tabell.maksNy(a, 3, 5);
+        int i = Tabell.maksNy(a, 3, 7);
         System.out.println(i);
     }
 }
