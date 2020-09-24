@@ -144,5 +144,124 @@ public class Ukesoppgaver2 {
     }*/
 
     //1.2.4 Oppgave 4
+    //Idéen i Oppgave 3 kan utvides til å bli en sorteringsalgoritme. Finn først den største og bytt om slik at den kommer bakerst.
+    // Finn så den største i det intervallet som ikke har med den siste og bytt om slik at den kommer nest bakerst.
+    // Finn så den største i intervallet som ikke har med de to siste og bytt om slik at den kommer på tredje bakerst. Osv.
+    // Lag metoden public static void sortering(int[] a) med dette som idé.
 
+    /*public static void sortering(int[] a){
+        for(int i=a.length; i>1; --i){ //Går igenom en forlökke som startar på det sista elementen och går baklänges.
+            int m = Tabell.maks(a); //Hittar maxvärdet i tabellen.
+            Tabell.bytt(a, i-1, m); //Byter ut maxvärdet mot i-1 så att det går nedåt.
+        }
+    }*/
+
+    //1.2.6 Uppgift 1
+    //	Sjekk at versjonen av nestMaks-metoden i Programkode 1.2.5 a) utfører nøyaktig 2n − 3 sammenligninger når tabellen er sortert.
+
+    /*public static int[] nestMaks(int[] a) // ny versjon
+    {
+        int n = a.length;     // tabellens lengde
+        if (n < 2) throw      // må ha minst to verdier
+                new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
+
+        int m = 0;      // m er posisjonen til største verdi
+        int nm = 1;     // nm er posisjonen til nest største verdi
+
+        // bytter om m og nm hvis a[1] er større enn a[0]
+        if (a[1] > a[0]) { m = 1; nm = 0; } //En sammenligning här (1)
+
+        int maksverdi = a[m];                // største verdi
+        int nestmaksverdi = a[nm];           // nest største verdi
+
+        for (int i = 2; i < n; i++)
+        {
+            if (a[i] > nestmaksverdi) //Denna sammenligningen är alltid sann i det värsta tillfället (n-2)
+            {
+                if (a[i] > maksverdi) //Denna sammenligningen är alltid sann i det värsta tillfället (n-2)
+                {
+                    nm = m;
+                    nestmaksverdi = maksverdi;     // ny nest størst
+
+                    m = i;
+                    maksverdi = a[m];              // ny størst
+                }
+                else
+                {
+                    nm = i;
+                    nestmaksverdi = a[nm];         // ny nest størst
+                }
+            }
+        } // for
+
+        return new int[] {m,nm};    // n i posisjon 0, nm i posisjon 1
+
+        //När vi har 1 sammenligning + (n-2) + (n-2) så får vi 2n - 4 + 3 = 2n-3
+
+    }*/
+
+    //1.2.6 Uppgift 2
+    //For hvilke tabeller bruker metoden færrest mulig sammenligninger?
+
+    //Det blir minst antal sammenligningar när det två största talen ligger först i tabellen.
+
+    //1.2.6 Uppgift 3
+    //Er det noen forskjell på gjennomsnittlig effektivitet, effektiviteten i det mest ugunstige tilfellet og effektiviteten
+    // i det beste tilfellet for maks-metoden, dvs. for den metoden som finner posisjonen til den største verdien i en tabell?
+
+    /*public static int maks(int[] a, int fra, int til)
+    {
+        if (fra < 0 || til > a.length || fra >= til)
+        {
+            throw new IllegalArgumentException("Illegalt intervall!");
+        }
+
+        int m = fra;
+        int maksverdi = a[fra];
+
+        for (int i = fra + 1; i < til; i++)
+        {
+            if (a[i] > maksverdi) //Den a sammenligningen är alltid sann i värsta tillfället (n-1) I bästa tillfället så måste det också göras (n-1) sammanligningar.
+            {
+                m = i;
+                maksverdi = a[m];
+            }
+        }
+        return m;
+    }*/
+
+    //1.2.8 Uppgift 1
+    //Et «møte» er det samme som en sammenligning. Hvor mange sammenligninger trengs for å gjennomføre en turnering med 16 deltagere slik som i Figur 1.2.8 a)?
+    // Hva med 8 deltagere? Hva med 2k deltagere der k er et positivt heltall.
+
+    //I en turnering med 16 deltagare så blir det 15 möten (n-1). I en turnering med 8 deltagare så blir det 7 möten (n-1).
+    //I en turnering med 2k deltagare så blir det 2k-1 möten.
+
+    //1.2.8 Uppgift 2
+    //Tegn et turneringstre slik som i Figur 1.2.8 a) for tilfellene:
+    // a) 3, 15, 8, 11, 13, 9, 10, 5 og
+    // b) 10, 17, 13, 16, 17, 8, 12, 15, 9, 15, 16, 15, 10, 13, 14, 17.
+
+    //a)                  (15)
+    //            (15)            (13)
+    //        (15)    (11)    (13)    (10)
+    //      (3)(15) (8)(11) (13)(9) (10)(5)
+
+    // b)                               (17)
+    //                 (17)                             (17)
+    //        (17)             (17)             (16)              (17)
+    //   (17)     (16)     (17)    (15)     (15)    (16)     (10)     (17)
+    // (10)(17) (13)(16) (17)(8) (12)(15) (9)(15) (16)(15) (10)(13) (14)(17)
+
+    //1.2.8 Uppgift 3
+    //Bruk de samme 16 verdiene som i Figur 1.2.8 a). Lag en turnering for å finne minst verdi.
+
+    //                                (5)
+    //               (5)                                (10)
+    //       (5)              (23)              (15)             (10)
+    //   (9)     (5)     (23)     (26)     (15)     (18)     (16)     (10)
+    // (9)(21) (5)(25) (27)(23) (26)(28) (17)(15) (19)(18) (16)(20) (14)(10)
+
+    //1.2.9 Uppgift 1
+    //
 }

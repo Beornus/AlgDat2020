@@ -252,5 +252,5 @@ public class Tabell     // Samleklasse for tabellmetoder
 
         return new int[] {m,nm};      // Returnerar ett nytt array med m i posisjon 0 , nm i posisjon 1
 
-    } // nestMaks
+    }
 }
