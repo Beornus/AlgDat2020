@@ -210,31 +210,30 @@ public class Tabell     // Samleklasse for tabellmetoder
 
     public static int[] nestMaks2(int[] a)  // legges i class Tabell
     {
-        int n = a.length;   // tabellens lengde
+        int n = a.length;   // längden på tabellen
 
-        if (n < 2) throw   // må ha minst to verdier!
+        if (n < 2) throw   // om tabellen har mindre än två element så kastar den undantag
                 new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
 
-        int m = maks(a);  // m er posisjonen til tabellens største verdi
+        int m = maks(a);  // m är indexpositionen till tabellens största värde.
+        int nm;           // nm ska innehålla värdet av tabellens näst största värde.
 
-        int nm;           // nm skal inneholde posisjonen til nest største verdi
-        //bytt verdi
-        bytt(a, m, 0);
+        bytt(a, m, 0); // Använder byttmetoden på tabellen a, och byter m med index 0, dvs m kommer först i tabellen.
 
-        nm = maks(a, 1, n);
+        nm = maks(a, 1, n); //Nu kan vi gå genom resten av tabellen för att hitta det näst största talet
 
-        if(m == nm) nm = 0;
+        if (m == nm)
+            nm = 0; //Om det största talet är likt det näst största talet så sätter vi näst största talet till 0(?)
 
-        //bytt tilbake
-        bytt(a, 0, m);
+        bytt(a, 0, m); //Byter tillbaka värdena i tabellen så att de ligger där de låg i starten.
 
-        return new int[] {m,nm};      // m i posisjon 0 , nm i posisjon 1
+        return new int[]{m, nm};      // returnerar ett nytt array med m i posisjon 0 , nm i posisjon 1
 
-    } // nestMaks
+    }
 
     public static int[] nestMaks3(int[] a)  // legges i class Tabell
     {
-        int n = a.length;   // tabellens lengde
+        int n = a.length;   // Längden på tabellen
 
         if (n < 2) throw   // må ha minst to verdier!
                 new java.util.NoSuchElementException("a.length(" + n + ") < 2!");
@@ -242,17 +241,16 @@ public class Tabell     // Samleklasse for tabellmetoder
         int m = maks(a);  // m er posisjonen til tabellens største verdi
 
         int nm;           // nm skal inneholde posisjonen til nest største verdi
-        //bytt verdi
-        bytt(a, m, n-1);
 
-        nm = maks(a, 0, n-1);
+        bytt(a, m, n-1); //Byter på m och n-1(tabellens sista index) för att lägga det största talet längst bak.
 
-        if(m == nm) nm = n-1;
+        nm = maks(a, 0, n-1); //hittar det näst största värdet mellan index 0 och den sista indexen.
 
-        //bytt tilbake
-        bytt(a, n-1, m);
+        if(m == nm) nm = n-1; //Om det största värdet är likt det näst största likt n-1(?)
 
-        return new int[] {m,nm};      // m i posisjon 0 , nm i posisjon 1
+        bytt(a, n-1, m); //Byter tillbaks elementen
+
+        return new int[] {m,nm};      // Returnerar ett nytt array med m i posisjon 0 , nm i posisjon 1
 
     } // nestMaks
 }

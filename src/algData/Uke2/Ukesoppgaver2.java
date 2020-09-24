@@ -128,7 +128,7 @@ public class Ukesoppgaver2 {
     // Pass på at det tilfellet behandles rett.
 
     /*public static void main(String[] args) {
-        int [] a = {2, 3, 5, 6};
+        int [] a = {7, 2, 3, 5, 6};
         int [] b = Tabell.nestMaks2(a);
         System.out.println(Arrays.toString(b));
     }*/
@@ -137,9 +137,12 @@ public class Ukesoppgaver2 {
     //Som i Oppgave 2, men bytt om slik at den største havner bakerst. Obs. Det blir et spesialtilfelle her når den nest
     //største verdien ligger bakerst i tabellen. Pass på at det tilfellet behandles rett.
 
-    public static void main(String[] args) {
-        int [] a = {2, 3, 5, 6};
+    /*public static void main(String[] args) {
+        int [] a = {2, 3, 5, 6, 8};
         int [] b = Tabell.nestMaks3(a);
         System.out.println(Arrays.toString(b));
-    }
+    }*/
+
+    //1.2.4 Oppgave 4
+
 }
