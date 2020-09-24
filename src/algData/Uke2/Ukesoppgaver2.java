@@ -263,5 +263,51 @@ public class Ukesoppgaver2 {
     // (9)(21) (5)(25) (27)(23) (26)(28) (17)(15) (19)(18) (16)(20) (14)(10)
 
     //1.2.9 Uppgift 1
-    //
+    //Finn antall noder i Figur 1.2.8 a)? Hvor mange er bladnoder? Hvor mange er indre noder?
+
+    //Antal noder totalt = 31 st.
+    //Bladnoder = 16 st
+    //Inre noder = 15 st
+
+    //1.2.9 Uppgift 2
+    //Hvor mange noder er det på nivå k (k = 0, 1, 2, . . ) i et turneringstre av den typen som Figur 1.2.8 a) viser?
+
+    //eftersom nivåerna startar under rotnoden så är det 2 noder på nivå 1, 4 på nivå 2, 8 på nivå 3 osv.
+    //Generellt sätt så kan man då skriva att antal noder på nivå k är 2 upphöjt i k.
+
+    //1.2.9 Uppgift 3
+    //Anta at antall deltagere n i en turnering er på formen n = 2k, dvs. n = 1, 2, 4, 8, osv.
+    // Finn svarene på flg. spørsmål uttrykt ved n: Hvor mange noder får turneringstreet? Hvilken høyde får treet?
+    // Hvor mange er bladnoder og hvor mange er indre noder? Hvor mange sammenligninger utføres i turneringen?
+
+    //Antal noder i trädet blir 2n-1.
+    //Höjden på trädet blir log2n = 2 upphöjt i ? = n. Eftersom deltagarantalet ökar för varje nivå med att dubblas.
+    //Antal bladnoder blir n.
+    //Antal inre noder blir n-1 vilket är samma som antalet sammenligninger.
+
+    //1.2.10 Uppgift 1
+    //Tegn et turneringstre, slik som i Figur 1.2.10 c), skriv opp de som vinneren har slått ut og finn den nest største verdien for flg. tre samlinger av tall:
+
+    //a) 10, 17, 13, 16, 17, 8, 12, 15, 9, 15
+    //  Det är 10 tal dvs att det är 10*2 -1 antal noder = 19.
+    //                            (17)
+    //                 (17)                (17)
+    //           (15)        (17)     (16)     (17)
+    //       (15)    (15)  (10)(17) (13)(16) (17)(8)
+    //    (12)(15) (9)(15)
+
+    //Eftersom vi räknar med det första största talet från vänster så har vinnaren slagit ut 10, 15 och 17.
+
+    //b) 5, 11, 7, 13, 2, 9, 10, 8, 3, 14, 6, 12
+    // Det är 12 tal dvs 12*2-1 noder = 23
+    //                              (14)
+    //               (14)                     (13)
+    //       (10)            (14)         (11)    (13)
+    //   (9)     (10)    (14)   (12)    (5)(11) (7)(13)
+    //  (2)(9) (10)(8) (3)(14) (6)(12)
+
+    //vinnaren slog ut 3, 12, 10, 13
+
+
+
 }
