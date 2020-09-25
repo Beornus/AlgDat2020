@@ -308,6 +308,111 @@ public class Ukesoppgaver2 {
 
     //vinnaren slog ut 3, 12, 10, 13
 
+    //1.2.11 Uppgift 1
+    //Svar på flg. spørsmål for hvert av trærne A, B, C, D, E og F over:
+    // a) Er treet komplett? A) Nej B) Nej C) Nej D) Nej E) Ja F) Nej
+    // b) Er treet perfekt? A) Nej B) Nej C) Nej D) Nej E) Nej F) Nej
+    // c) Er treet fullt? A) Ja B) Ja C) Nej D) Nej E) Ja F) Nej
+    // d) Hva er treets høyde? A) 3 B) 3 C) 3 D) 3 E) 3 F) 3
+    // e) Hvor mange bladnoder har treet? A) 6 B) 6 C) 6 D) 4 E) 7 F) 4
+    // f) Er det et turneringstre? A) Nej B) Nej C) Nej D) Nej E) Ja F) Nej
 
+    //1.2.11 Uppgift 2
+    //Tegn et perfekt binærtre med høyde 3. Tegn et komplett binærtre med 10 noder. Tegn et komplett binærtre med 20 noder.
+
+    //Perfekt med höjd 3:
+    //              ()
+    //       ()            ()
+    //   ()     ()     ()     ()
+    //  ()()   ()()   ()()   ()()
+
+    // Komplett med 10 noder:
+    //        ()
+    //    ()      ()
+    //  ()  ()   () ()
+    // ()() ()
+
+    //Komplett med 20 noder:
+    //                  ()
+    //          ()              ()
+    //     ()        ()     ()     ()
+    //  ()   ()   ()   ()  ()()   ()()
+    // ()() ()() ()
+
+    // 1.2.11 Uppgift 3
+    //Tegn et fullt binærtre med 5 noder? Hvor mange slike finnes det? Hvor mange fulle binærtrær med 7 noder finnes det?
+    // Vis at antallet noder i et fullt binærtre alltid er et odde tall.
+
+    //Fullt binärträd med 5 noder
+    //      ()                  ()
+    //   ()    ()  eller    ()      ()
+    //  ()()                       ()() Det finns två varianter.
+
+    //Fullt binärträd med 7 noder
+    //           ()
+    //       ()      ()
+    //     () ()
+    //       ()()           Det finns 4 varianter med fulla träd med 7 noder.
+
+    //Antal noder i ett fullt binärträd är alltid udda då man antingen lägger till 2 eller 0 noder utöver rotnoden.
+
+    //1.2.13 Uppgift 1
+    //Sjekk at Programkode 1.2.13 a) virker. Obs: metoden returnerer størst og nest størst verdi og ikke indeksene.
+    // Legg inn en setning som skriver ut tabellen b etter ut turneringen er gjennomført. Dermed kan en se resultatet av turneringen.
+
+    /*public static int[] nestMaks(int[] a)   // en turnering
+    {
+        int n = a.length;                // for å forenkle notasjonen
+
+        if (n < 2) // må ha minst to verdier!
+            throw new IllegalArgumentException("a.length(" + n + ") < 2!");
+
+        int[] b = new int[2*n];          // turneringstreet
+        System.arraycopy(a,0,b,n,n);     // legger a bakerst i b
+
+        for (int k = 2*n-2; k > 1; k -= 2)   // lager turneringstreet
+            b[k/2] = Math.max(b[k],b[k+1]);
+
+        int maksverdi = b[1], nestmaksverdi = Integer.MIN_VALUE;
+
+        for (int m = 2*n - 1, k = 2; k < m; k *= 2)
+        {
+            int tempverdi = b[k+1];  // ok hvis maksverdi er b[k]
+            if (maksverdi != b[k]) { tempverdi = b[k]; k++; }
+            if (tempverdi > nestmaksverdi) nestmaksverdi = tempverdi;
+        }
+
+        return new int[] {maksverdi,nestmaksverdi}; // størst og nest størst
+
+    } // nestMaks
+
+    public static void main(String[] args){
+        int [] a = {4, 3, 6, 1, 7, 3, 8, 20, 17};
+        int [] b = nestMaks(a);
+        System.out.println(Arrays.toString(b));
+    }*/
+
+    //Metoden funkar.
+
+    //1.2.13 Uppgift 3
+    //Metoden public static void kopier(int[] a, int i, int[] b, int j, int ant) skal virke som arraycopy() fra class System. Lag den!
+
+    /*public static void kopier(int[] a, int i, int[] b, int j, int ant){
+        for (int n = i + ant; i < n; ) b[j++] = a[i++]; //Den här fattade jag inte, fråga om förklaring.
+    }
+
+    //1.2.13 Uppgift 4
+    //Gitt tabeller int[] a og int[] b med a.length <= b.length. Lag kode, vha. arraycopy() eller vha. kopier() fra Oppgave 3, slik at
+    // 1) a kopieres inn først i b,  2) a kopieres inn bakerst i b og 3) a kopieres inn på midten av b (gitt at lengdeforskjellen er et partall).
+
+    public static void kode(int[] a, int[] b){
+        //Det är gitt i uppgiften att längden på b är större eller lik a.
+        // 1. System.arraycopy(a, 0, b, 0, a.length);
+        // 2. System.arraycopy(a, 0, b, b.length-a.length, a.length);
+        // 3. System.arraycopy(a, 0, b, (b.length-a.length)/2, a.length);
+    }*/
+
+    //1.3.1 Uppgift 1
+    //
 
 }
