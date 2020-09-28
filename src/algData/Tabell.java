@@ -280,4 +280,10 @@ public class Tabell     // Samleklasse for tabellmetoder
 
         return true;                             // en ny permutasjon
     }
+    //1.3.4a
+    public static void utvalgssortering(int[] a)
+    {
+        for (int i = 0; i < a.length - 1; i++)
+            bytt(a, i, min(a, i, a.length));  // to hjelpemetoder
+    }
 }
