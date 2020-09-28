@@ -411,8 +411,4 @@ public class Ukesoppgaver2 {
         // 2. System.arraycopy(a, 0, b, b.length-a.length, a.length);
         // 3. System.arraycopy(a, 0, b, (b.length-a.length)/2, a.length);
     }*/
-
-    //1.3.1 Uppgift 1
-    //
-
 }
